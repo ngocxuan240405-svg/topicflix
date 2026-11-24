@@ -1,13 +1,86 @@
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>topicflix</title>
+
+    <!-- TopicFlix Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+
+    <!-- Responsive -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <!-- Website Title -->
+    <title>TopicFlix – Learn English Through Videos</title>
+
+    <!-- SEO Description -->
+    <meta
+      name="description"
+      content="TopicFlix is an interactive English learning website. Learn English through videos, interactive subtitles, vocabulary, flashcards, AI sentence practice and listening tests from B1 to C1."
+    />
+
+    <meta
+      name="keywords"
+      content="TopicFlix, learn English, English learning, learn English through videos, English listening, English vocabulary, B1, B2, C1"
+    />
+
+    <meta name="robots" content="index, follow" />
+
+    <!-- =========================================
+         TOPICFLIX - DEFAULT YOUTUBE VIDEOS
+
+         Automatically provide 8 videos to new
+         visitors without changing existing videos.
+    ========================================== -->
+
+    <script>
+      (function () {
+        const defaultVideos = {
+          'Daily Conversations': 'Qr-dztf5Rs4',
+          'Travel & Tourism': '2BhuZARr-QY',
+          'Business & Career': 'B-JDi7W7-Qk',
+          'Education': 'iP85R3ZNw7I',
+          'Technology': '6TJGL0Yf2X8',
+          'Food & Lifestyle': 'n8hMuRe8iXM',
+          'Movies & Entertainment': 'Lx6gv0zBN8M',
+          'Environment': 'JfpsKPEAkWw'
+        };
+
+        try {
+          Object.entries(defaultVideos).forEach(
+            function ([topic, videoId]) {
+              const key = 'topicflix_youtube_' + topic;
+
+              // Only add the default video if none exists.
+              // Never overwrite a saved video.
+              if (localStorage.getItem(key) === null) {
+                localStorage.setItem(key, videoId);
+              }
+            }
+          );
+        } catch (error) {
+          console.warn(
+            'TopicFlix: Cannot initialize default videos.',
+            error
+          );
+        }
+      })();
+    </script>
+
+    <!-- END DEFAULT YOUTUBE VIDEOS -->
   </head>
+
   <body>
     <div id="root"></div>
+
+    <!-- Original React Application -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
