@@ -1,0 +1,2583 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7ff;
+  color: #1e293b;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(120deg, #2563eb, #8b5cf6);
+  color: white;
+  padding: 45px 20px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 42px;
+  margin: 0;
+}
+
+.header p {
+  font-size: 18px;
+}
+
+.main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 35px 20px;
+  text-align: center;
+}
+
+.topics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.topics button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+button {
+  padding: 22px;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  background: white;
+  color: #334155;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px #00000012;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  border-color: #8b5cf6;
+}
+
+button.selected {
+  background: #4f46e5;
+  color: white;
+}
+
+.topic-icon {
+  font-size: 32px;
+}
+
+.level-section {
+  margin-top: 40px;
+}
+
+.levels {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.result {
+  margin: 35px auto;
+  padding: 25px;
+  max-width: 500px;
+  background: #e0e7ff;
+  border-radius: 16px;
+}
+
+/* TopicFlix - Start Learning */
+
+.start-learning-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #2563eb, #7c3aed);
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.start-learning-btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 25px;
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.levels button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 125px;
+}
+
+.level-name {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.result {
+  text-align: center;
+}
+
+.video-learning-player {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.video-learning-player video {
+  width: 100%;
+  border-radius: 14px;
+  background: #111827;
+}
+
+.video-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.video-controls select {
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.interactive-subtitles {
+  background: #e0e7ff;
+  border-radius: 12px;
+  padding: 20px;
+  line-height: 2.2;
+  text-align: center;
+}
+
+.subtitle-word {
+  display: inline;
+  padding: 4px;
+  margin: 2px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.subtitle-word:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+  transform: none;
+}
+
+.word-details {
+  max-width: 700px;
+  margin: 25px auto;
+  padding: 25px;
+  border-radius: 14px;
+  background: #eef2ff;
+}
+
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .main {
+    padding: 20px 12px;
+  }
+
+  .levels {
+    gap: 10px;
+  }
+
+  .levels button {
+    min-width: 90px;
+  }
+}
+
+
+/* =========================================
+   TOPICFLIX - VOCABULARY DETAILS
+   Bổ sung mới - Giữ nguyên CSS hiện tại
+========================================= */
+
+.word-details {
+  max-width: 850px;
+  margin: 25px auto;
+  padding: 25px;
+  border-radius: 16px;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  text-align: left;
+}
+
+.word-details h2 {
+  color: #4f46e5;
+  margin-bottom: 15px;
+}
+
+.word-details h3 {
+  color: #1e40af;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.word-details p {
+  line-height: 1.7;
+}
+
+.vocabulary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.vocabulary-actions button {
+  padding: 13px 20px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #2563eb, #7c3aed);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.vocabulary-actions button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .word-details {
+    padding: 18px;
+  }
+
+  .vocabulary-actions {
+    flex-direction: column;
+  }
+
+  .vocabulary-actions button {
+    width: 100%;
+  }
+}
+
+/* TOPICFLIX - AI SENTENCE PRACTICE */
+
+.tf-ai-practice {
+  max-width: 900px;
+  margin: 35px auto;
+  padding: 25px;
+  border-radius: 18px;
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  text-align: left;
+}
+
+.tf-ai-practice h2 {
+  color: #5b21b6;
+}
+
+.tf-ai-practice textarea {
+  display: block;
+  width: 100%;
+  margin: 12px 0 18px;
+  padding: 15px;
+  font: inherit;
+  line-height: 1.6;
+  border: 1px solid #c4b5fd;
+  border-radius: 12px;
+  resize: vertical;
+}
+
+.tf-ai-practice > button {
+  background: linear-gradient(120deg, #2563eb, #7c3aed);
+  color: white;
+  padding: 14px 24px;
+}
+
+.tf-ai-practice > button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tf-ai-feedback {
+  margin-top: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #c4b5fd;
+}
+
+@media (max-width: 600px) {
+  .tf-ai-practice {
+    padding: 16px;
+  }
+}
+
+/* TOPICFLIX - QUIZ MODES AND HISTORY */
+
+.tf-quiz-input {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  box-sizing: border-box;
+  margin: 15px 0;
+  padding: 14px 16px;
+  border: 1px solid #a5b4fc;
+  border-radius: 12px;
+  font-size: 16px;
+  background: #ffffff;
+  color: #1e293b;
+}
+
+.tf-quiz-input:focus {
+  outline: 2px solid #6366f1;
+  border-color: #6366f1;
+}
+
+.tf-quiz-area form button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #4f46e5;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.tf-quiz-area form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tf-quiz-meaning {
+  padding: 18px;
+  background: #eef2ff;
+  border-radius: 12px;
+  color: #3730a3;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.tf-quiz-mistakes {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.tf-quiz-mistakes > div {
+  margin: 10px 0;
+  padding: 14px;
+  border-left: 4px solid #ef4444;
+  border-radius: 8px;
+  background: #fef2f2;
+  color: #7f1d1d;
+}
+
+.tf-quiz-history {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #c7d2fe;
+}
+
+.tf-history-list {
+  display: grid;
+  gap: 10px;
+}
+
+.tf-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid #e0e7ff;
+  border-radius: 12px;
+  background: #f8faff;
+  color: #334155;
+}
+
+.tf-history-item small {
+  color: #64748b;
+}
+
+@media (max-width: 600px) {
+  .tf-history-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* TOPICFLIX - YOUTUBE PLAYER */
+
+.tf-youtube-section {
+  width: 100%;
+  margin: 20px 0 30px;
+  text-align: left;
+}
+
+.tf-youtube-section h2 {
+  color: #4338ca;
+}
+
+.tf-youtube-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #111827;
+}
+
+.tf-youtube-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.tf-youtube-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid #e0e7ff;
+  border-radius: 14px;
+  background: #f8faff;
+}
+
+.tf-youtube-form label {
+  font-weight: 600;
+  color: #334155;
+}
+
+.tf-youtube-form input {
+  width: 100%;
+  padding: 13px;
+  box-sizing: border-box;
+  border: 1px solid #c7d2fe;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1e293b;
+}
+
+.tf-youtube-form button {
+  padding: 13px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #4f46e5;
+  color: white;
+  cursor: pointer;
+}
+
+.tf-youtube-form button:hover {
+  background: #4338ca;
+}
+
+/* FIX: Interactive Transcript - hien thi nhu van ban */
+
+.tf-interactive-transcript .tf-transcript-content {
+  display: block;
+  max-height: 360px;
+  overflow-y: auto;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.tf-interactive-transcript .tf-transcript-content p {
+  display: block;
+  margin: 0 0 12px;
+  padding: 0;
+  line-height: 1.9;
+  text-align: left;
+  white-space: normal;
+}
+
+.tf-interactive-transcript .tf-transcript-word {
+  display: inline !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #1e293b !important;
+  font: inherit !important;
+  font-weight: normal !important;
+  line-height: inherit !important;
+  text-align: left !important;
+  vertical-align: baseline !important;
+  transform: none !important;
+  cursor: pointer;
+}
+
+.tf-interactive-transcript .tf-transcript-word:hover,
+.tf-interactive-transcript .tf-transcript-word:focus-visible {
+  background: #e0e7ff !important;
+  color: #4338ca !important;
+  border-radius: 3px !important;
+  text-decoration: underline;
+}
+
+/* ===== TOPICFLIX: LIVE INTERACTIVE SUBTITLES ===== */
+
+.tf-live-transcript {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto 28px;
+  text-align: center;
+}
+
+.tf-live-transcript h2 {
+  margin-bottom: 10px;
+  color: #1e293b;
+}
+
+.tf-live-description,
+.tf-live-timestamp {
+  font-size: 13px;
+  color: #64748b;
+  margin: 10px 0;
+}
+
+.tf-live-caption {
+  display: block;
+  min-height: 96px;
+  padding: 20px;
+  margin: 14px 0;
+  background: #111827;
+  border-radius: 14px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.8;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.tf-live-caption .tf-live-word {
+  display: inline !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
+  font: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  vertical-align: baseline !important;
+  text-align: inherit !important;
+  text-transform: none !important;
+  transform: none !important;
+  cursor: pointer;
+}
+
+.tf-live-caption .tf-live-word:hover,
+.tf-live-caption .tf-live-word:focus-visible {
+  color: #facc15 !important;
+  background: transparent !important;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .tf-live-transcript {
+    padding: 0 10px;
+  }
+
+  .tf-live-caption {
+    min-height: 80px;
+    padding: 14px;
+    font-size: 17px;
+  }
+}
+
+/* ===== TOPICFLIX VIDEO LISTENING TEST ===== */
+
+.tf-test-page {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 12px 0 32px;
+  text-align: left;
+}
+
+.tf-test-page > header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.tf-test-page > header h2 {
+  margin-bottom: 8px;
+}
+
+.tf-test-page > header h3 {
+  margin: 8px 0;
+  color: #4338ca;
+}
+
+.tf-test-question {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  color: #1e293b;
+}
+
+.tf-test-question h3 {
+  margin: 0 0 12px;
+  color: #4338ca;
+}
+
+.tf-test-options {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.tf-test-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #1e293b;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.tf-test-option input {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  margin-top: 3px;
+  accent-color: #4f46e5;
+}
+
+.tf-test-option:hover {
+  border-color: #818cf8;
+}
+
+.tf-test-selected {
+  border-color: #6366f1;
+  background: #eef2ff;
+}
+
+.tf-test-correct {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.tf-test-incorrect {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.tf-test-explanation {
+  margin-top: 16px;
+  padding: 14px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  line-height: 1.6;
+}
+
+.tf-test-explanation p {
+  margin: 6px 0;
+}
+
+.tf-test-results {
+  margin: 20px 0 28px;
+  padding: 22px;
+  border: 1px solid #c7d2fe;
+  border-radius: 16px;
+  background: #eef2ff;
+  color: #1e293b;
+  text-align: center;
+}
+
+.tf-test-tier-results {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tf-test-submit {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.tf-test-submit button,
+.tf-test-results button {
+  padding: 12px 22px;
+  border-radius: 10px;
+  background: #4f46e5;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .tf-test-question {
+    padding: 14px;
+  }
+
+  .tf-test-option {
+    padding: 10px;
+  }
+}
+
+/* ===== TOPICFLIX - LEARNING PROGRESS ===== */
+
+.tf-progress-page {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px 0 36px;
+  color: #1e293b;
+  text-align: left;
+}
+
+.tf-progress-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.tf-progress-heading h2 {
+  margin: 0 0 8px;
+  color: #1e293b;
+}
+
+.tf-progress-heading p {
+  margin: 0;
+  color: #64748b;
+}
+
+.tf-progress-refresh {
+  border: none;
+  border-radius: 10px;
+  padding: 11px 16px;
+  background: #4f46e5;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tf-progress-refresh:hover {
+  background: #4338ca;
+}
+
+.tf-progress-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+  margin-bottom: 24px;
+}
+
+.tf-progress-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  gap: 8px;
+  padding: 18px 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.tf-progress-stat-icon {
+  font-size: 25px;
+}
+
+.tf-progress-stat strong {
+  font-size: 28px;
+  color: #4338ca;
+}
+
+.tf-progress-stat > span:last-child {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.tf-progress-panel {
+  margin-bottom: 22px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.tf-progress-panel h3 {
+  margin: 0 0 16px;
+  color: #312e81;
+}
+
+.tf-progress-panel p {
+  line-height: 1.6;
+}
+
+.tf-progress-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.tf-progress-tier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #eef2ff;
+  color: #312e81;
+}
+
+.tf-progress-tier strong {
+  font-size: 18px;
+}
+
+.tf-progress-tier span {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.tf-progress-note,
+.tf-progress-description,
+.tf-progress-footer {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.tf-progress-footer {
+  margin-top: 22px;
+  text-align: center;
+}
+
+/* Biểu đồ tiến bộ */
+.tf-progress-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 10px;
+  height: 260px;
+  padding: 10px 8px 0;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.tf-progress-chart-item {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  min-width: 0;
+  gap: 6px;
+}
+
+.tf-progress-chart-score {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4338ca;
+}
+
+.tf-progress-chart-track {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 55px;
+  height: 190px;
+  background: #eef2ff;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.tf-progress-chart-bar {
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    #818cf8,
+    #4f46e5
+  );
+  border-radius: 8px 8px 0 0;
+  transition: height 0.3s ease;
+}
+
+.tf-progress-chart-label {
+  font-size: 12px;
+  color: #64748b;
+  padding-bottom: 6px;
+}
+
+/* Bảng thống kê */
+.tf-progress-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tf-progress-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 520px;
+}
+
+.tf-progress-table th,
+.tf-progress-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+  font-size: 14px;
+}
+
+.tf-progress-table th {
+  color: #312e81;
+  background: #eef2ff;
+  font-weight: 700;
+}
+
+.tf-progress-table tr:hover td {
+  background: #f8fafc;
+}
+
+/* Khi chưa có dữ liệu */
+.tf-progress-empty {
+  padding: 48px 20px;
+  border: 1px dashed #c7d2fe;
+  border-radius: 16px;
+  background: #f8faff;
+  text-align: center;
+}
+
+.tf-progress-empty h3 {
+  color: #4338ca;
+}
+
+.tf-progress-empty p {
+  max-width: 520px;
+  margin: 12px auto;
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tf-progress-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tf-progress-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tf-progress-panel {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tf-progress-summary {
+    gap: 10px;
+  }
+
+  .tf-progress-stat {
+    min-height: 115px;
+    padding: 12px 6px;
+  }
+
+  .tf-progress-stat strong {
+    font-size: 24px;
+  }
+
+  .tf-progress-tiers {
+    gap: 8px;
+  }
+
+  .tf-progress-tier {
+    padding: 12px 6px;
+  }
+
+  .tf-progress-chart {
+    gap: 4px;
+  }
+}
+
+
+
+/* ==================================================
+   TOPICFLIX - STEP 16: MODERN UI UPGRADE
+   CHI BO SUNG - KHONG XOA CSS CU
+   No external libraries or images required.
+================================================== */
+
+/* 1. Mau sac va giao dien tong the */
+
+.app {
+  --tf-primary: #4f46e5;
+  --tf-primary-dark: #3730a3;
+  --tf-blue: #2563eb;
+  --tf-text: #1e293b;
+  --tf-muted: #64748b;
+  --tf-border: #e2e8f0;
+
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      180deg,
+      #f1f5ff 0%,
+      #f8faff 55%,
+      #f5f7ff 100%
+    );
+}
+
+.app button {
+  font-family: inherit;
+}
+
+.app button:focus-visible {
+  outline: 3px solid #818cf8;
+  outline-offset: 3px;
+}
+
+/* 2. Header TopicFlix */
+
+.app > .header {
+  position: relative;
+  overflow: hidden;
+  padding: 48px 20px 52px;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(255, 255, 255, 0.22),
+      transparent 36%
+    ),
+    linear-gradient(
+      120deg,
+      #1d4ed8 0%,
+      #4f46e5 52%,
+      #7c3aed 100%
+    );
+  border-radius: 0 0 28px 28px;
+}
+
+.app > .header h1 {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #ffffff;
+}
+
+.app > .header p {
+  margin: 12px 0 0;
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 500;
+  color: #e0e7ff;
+}
+
+/* 3. Bo cuc trang chu */
+
+.app .main {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 34px 22px 55px;
+}
+
+.topic-section {
+  padding: 30px 26px 38px;
+  border: 1px solid #e0e7ff;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(30, 41, 59, 0.05);
+}
+
+.topic-section h2 {
+  margin: 0 0 12px;
+  font-size: clamp(23px, 3vw, 30px);
+  font-weight: 800;
+  color: #312e81;
+}
+
+.topic-section > p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.topic-section .topics {
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.topic-section .topics button {
+  width: 100%;
+  min-width: 0;
+  min-height: 148px;
+  padding: 22px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  border: 1px solid #e0e7ff;
+  border-radius: 16px;
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #f8faff
+  );
+
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: center;
+  overflow-wrap: anywhere;
+
+  box-shadow: 0 4px 12px rgba(30, 41, 59, 0.04);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.topic-section .topics button .topic-icon {
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.topic-section .topics button:hover {
+  transform: translateY(-4px);
+  border-color: #a5b4fc;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.12);
+}
+
+.topic-section .topics button.selected {
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #7c3aed
+  );
+  border-color: #4f46e5;
+  color: #ffffff;
+}
+
+/* 4. Khu vuc hoc tap */
+
+.tf-learning-workspace {
+  max-width: 1160px;
+}
+
+.tf-workspace-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.tf-workspace-top .back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 11px 18px;
+  min-height: 44px;
+  border: 1px solid #c7d2fe;
+  border-radius: 12px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 14px;
+  box-shadow: none;
+}
+
+.tf-workspace-top .back-button:hover {
+  background: #e0e7ff;
+  transform: translateY(-2px);
+}
+
+.tf-current-lesson {
+  max-width: 100%;
+  margin: 0;
+  padding: 10px 16px;
+  border: 1px solid #ddd6fe;
+  border-radius: 999px;
+  background: #f5f3ff;
+  color: #5b21b6;
+  font-size: 14px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* 5. Thanh dieu huong 8 chuc nang */
+
+.tf-learning-nav {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 26px;
+  padding: 14px;
+  border: 1px solid #e0e7ff;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(30, 41, 59, 0.05);
+}
+
+.tf-learning-nav button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+  margin: 0;
+  padding: 11px 10px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 11px;
+  background: #f8fafc;
+  color: #475569;
+
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.4;
+  text-align: center;
+  box-shadow: none;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.tf-learning-nav button span:first-child {
+  font-size: 19px;
+  flex-shrink: 0;
+}
+
+.tf-learning-nav button span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.tf-learning-nav button:hover {
+  transform: translateY(-2px);
+  border-color: #a5b4fc;
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.tf-learning-nav button.tf-nav-active,
+.tf-learning-nav button[aria-current="page"] {
+  border-color: #4f46e5;
+  background: #4f46e5;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.16);
+}
+
+.tf-learning-nav button.tf-nav-active:hover {
+  background: #4338ca;
+  color: #ffffff;
+}
+
+/* 6. Vung noi dung cua cac trang */
+
+.tf-learning-content {
+  width: 100%;
+  min-width: 0;
+  padding: 26px;
+  border: 1px solid #e0e7ff;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(30, 41, 59, 0.05);
+  text-align: left;
+}
+
+.tf-learning-content > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* 7. Video Learning */
+
+.tf-learning-content .tf-youtube-section {
+  max-width: 960px;
+  margin: 12px auto 30px;
+}
+
+.tf-youtube-frame {
+  border: 1px solid #c7d2fe;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+.tf-youtube-form {
+  border-color: #e0e7ff;
+  border-radius: 14px;
+  background: #f8faff;
+}
+
+.tf-youtube-form input:focus {
+  outline: 2px solid #a5b4fc;
+  outline-offset: 1px;
+}
+
+.tf-live-caption {
+  border: 1px solid #334155;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+/*
+  KHONG sua .tf-live-word.
+  Giữ nguyên cách hiển thị phụ đề
+  và tính năng bấm từ để tra nghĩa.
+*/
+
+/* 8. Video Listening Test */
+
+.tf-test-page > header h2 {
+  color: #312e81;
+}
+
+.tf-test-question {
+  border: 1px solid #e0e7ff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(30, 41, 59, 0.04);
+}
+
+.tf-test-option {
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.tf-test-option:hover {
+  border-color: #818cf8;
+  background: #eef2ff;
+}
+
+.tf-test-option.tf-test-selected {
+  border-color: #6366f1;
+  background: #eef2ff;
+}
+
+.tf-test-option.tf-test-correct {
+  border-color: #22c55e;
+  background: #f0fdf4;
+}
+
+.tf-test-option.tf-test-incorrect {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.tf-test-results {
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    #f0f5ff,
+    #f5f3ff
+  );
+}
+
+.tf-test-submit button:hover,
+.tf-test-results button:hover {
+  background: #4338ca;
+}
+
+/* 9. Learning Progress */
+
+.tf-progress-stat,
+.tf-progress-panel {
+  border: 1px solid #e0e7ff;
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(30, 41, 59, 0.05);
+}
+
+.tf-progress-stat strong {
+  color: #4f46e5;
+}
+
+.tf-progress-panel h3 {
+  color: #3730a3;
+}
+
+.tf-progress-chart-bar {
+  background: linear-gradient(
+    180deg,
+    #818cf8,
+    #4f46e5
+  );
+}
+
+/* 10. Tu vung va AI */
+
+.tf-learning-content .word-details {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.tf-learning-content .tf-ai-practice {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.tf-learning-content .tf-ai-feedback {
+  border-color: #ddd6fe;
+}
+
+/* 11. Tablet */
+
+@media (max-width: 900px) {
+  .topic-section .topics {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .tf-learning-nav {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .tf-learning-content {
+    padding: 20px;
+  }
+}
+
+/* 12. Mobile */
+
+@media (max-width: 600px) {
+  .app > .header {
+    padding: 32px 16px 38px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .app .main {
+    padding: 20px 12px 35px;
+  }
+
+  .topic-section {
+    padding: 22px 14px 26px;
+    border-radius: 16px;
+  }
+
+  .topic-section .topics {
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .topic-section .topics button {
+    min-height: 128px;
+    padding: 14px 8px;
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .topic-section .topics button .topic-icon {
+    font-size: 32px;
+  }
+
+  .tf-workspace-top {
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .tf-current-lesson {
+    font-size: 12px;
+    padding: 9px 12px;
+  }
+
+  /*
+    Mobile: thanh tab cuon ngang.
+    Khong an bat ky chuc nang nao.
+  */
+
+  .tf-learning-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 9px;
+    padding: 10px;
+    margin-bottom: 18px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .tf-learning-nav button {
+    flex: 0 0 164px;
+    width: 164px;
+    min-height: 48px;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .tf-learning-content {
+    padding: 14px;
+    border-radius: 15px;
+  }
+
+  .tf-test-question {
+    padding: 14px;
+  }
+
+  .tf-test-option {
+    padding: 11px;
+  }
+
+  .tf-progress-panel {
+    padding: 14px;
+  }
+}
+
+/* 13. Dien thoai man hinh nho */
+
+@media (max-width: 380px) {
+  .topic-section .topics {
+    gap: 8px;
+  }
+
+  .topic-section .topics button {
+    min-height: 118px;
+    font-size: 12px;
+  }
+
+  .tf-learning-content {
+    padding: 10px;
+  }
+}
+
+/* 14. Giam hieu ung khi duoc yeu cau */
+
+@media (prefers-reduced-motion: reduce) {
+  .topic-section .topics button,
+  .tf-learning-nav button,
+  .tf-test-option {
+    transition: none;
+  }
+
+  .topic-section .topics button:hover,
+  .tf-learning-nav button:hover {
+    transform: none;
+  }
+}
+
+/* ===== END STEP 16 ===== */
+
+/* ==================================================
+   TOPICFLIX - STEP 16.1
+   WIDE RESPONSIVE LAYOUT + DECORATIONS
+   Chi them CSS, khong sua chuc nang cu
+================================================== */
+
+/* 1. Toan bo giao dien su dung khong gian tot hon */
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.app .main {
+  width: calc(100% - 48px);
+  max-width: 1480px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 36px 12px 60px;
+}
+
+/* 2. Banner lon va hoa tiet trang tri */
+
+.app > .header {
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  padding: 44px 24px;
+}
+
+.app > .header::before,
+.app > .header::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+.app > .header::before {
+  width: 280px;
+  height: 280px;
+  top: -170px;
+  left: 5%;
+  box-shadow:
+    0 0 0 45px rgba(255,255,255,0.035),
+    0 0 0 90px rgba(255,255,255,0.025);
+}
+
+.app > .header::after {
+  width: 300px;
+  height: 300px;
+  right: 5%;
+  bottom: -220px;
+  box-shadow:
+    0 0 0 50px rgba(255,255,255,0.04),
+    0 0 0 100px rgba(255,255,255,0.025);
+}
+
+.app > .header h1 {
+  font-size: clamp(38px, 4.5vw, 58px);
+  line-height: 1.2;
+}
+
+.app > .header p {
+  font-size: clamp(15px, 1.4vw, 20px);
+}
+
+/* 3. Phong to khung chon chu de */
+
+.app .topic-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 42px 38px 48px;
+  border-radius: 24px;
+}
+
+.app .topic-section h2 {
+  font-size: clamp(26px, 2.5vw, 36px);
+}
+
+.app .topic-section > p {
+  font-size: 16px;
+}
+
+.app .topic-section .topics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 36px;
+}
+
+.app .topic-section .topics button {
+  min-height: 200px;
+  padding: 28px 16px;
+  gap: 18px;
+  font-size: clamp(15px, 1.2vw, 18px);
+  font-weight: 700;
+  border-radius: 18px;
+}
+
+.app .topic-section .topics .topic-icon {
+  font-size: clamp(40px, 3.3vw, 54px);
+}
+
+/* Hoa tiet nhe tren tung the chu de */
+
+.app .topic-section .topics button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.app .topic-section .topics button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100px;
+  height: 100px;
+  right: -36px;
+  top: -36px;
+  border-radius: 50%;
+  background: rgba(129, 140, 248, 0.09);
+  pointer-events: none;
+}
+
+.app .topic-section .topics button.selected::before {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* 4. Khu vuc hoc tap rong hon */
+
+.app .tf-learning-workspace {
+  width: calc(100% - 48px);
+  max-width: 1480px;
+}
+
+.app .tf-workspace-top {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.app .tf-workspace-top .back-button,
+.app .tf-current-lesson {
+  font-size: 15px;
+}
+
+/* 5. Thanh dieu huong rong va de bam */
+
+.app .tf-learning-nav {
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: 18px;
+  border-radius: 20px;
+}
+
+.app .tf-learning-nav button {
+  min-height: 64px;
+  padding: 14px;
+  font-size: 15px;
+  gap: 12px;
+}
+
+.app .tf-learning-nav button span:first-child {
+  font-size: 23px;
+}
+
+/* 6. Khung noi dung va video lon hon */
+
+.app .tf-learning-content {
+  width: 100%;
+  padding: clamp(20px, 3vw, 42px);
+  border-radius: 24px;
+}
+
+.app .tf-learning-content .tf-youtube-section {
+  width: 100%;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app .tf-youtube-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.app .video-learning-player {
+  width: 100%;
+  max-width: 1300px;
+}
+
+.app .tf-live-transcript {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.app .tf-live-caption {
+  padding: 24px;
+  font-size: clamp(18px, 1.6vw, 23px);
+}
+
+/* 7. Giao dien bai kiem tra rong hon */
+
+.app .tf-test-page {
+  max-width: 1150px;
+  width: 100%;
+}
+
+.app .tf-test-question {
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.app .tf-test-question h3 {
+  font-size: 20px;
+}
+
+.app .tf-test-option {
+  min-height: 56px;
+  padding: 16px 18px;
+  font-size: 16px;
+}
+
+.app .tf-test-results {
+  padding: 30px;
+}
+
+/* 8. Learning Progress */
+
+.app .tf-progress-page {
+  width: 100%;
+  max-width: 1300px;
+}
+
+.app .tf-progress-stat {
+  min-height: 165px;
+}
+
+.app .tf-progress-panel {
+  padding: 28px;
+}
+
+/* 9. Man hinh laptop vua */
+
+@media (max-width: 1200px) {
+  .app .main,
+  .app .tf-learning-workspace {
+    width: calc(100% - 32px);
+  }
+
+  .app .topic-section {
+    padding: 32px 24px;
+  }
+
+  .app .topic-section .topics {
+    gap: 14px;
+  }
+
+  .app .topic-section .topics button {
+    min-height: 160px;
+    padding: 20px 10px;
+    font-size: 14px;
+  }
+
+  .app .tf-learning-nav button {
+    font-size: 13px;
+    min-height: 56px;
+  }
+}
+
+/* 10. Tablet */
+
+@media (max-width: 900px) {
+  .app .main,
+  .app .tf-learning-workspace {
+    width: calc(100% - 24px);
+    padding: 22px 0 36px;
+  }
+
+  .app .topic-section .topics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .app .topic-section .topics button {
+    min-height: 165px;
+    font-size: 15px;
+  }
+
+  .app .tf-learning-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .app .tf-learning-content {
+    padding: 22px;
+  }
+
+  .app .tf-test-question {
+    padding: 20px;
+  }
+}
+
+/* 11. Dien thoai */
+
+@media (max-width: 600px) {
+  .app > .header {
+    min-height: 145px;
+    padding: 28px 14px;
+  }
+
+  .app > .header h1 {
+    font-size: 34px;
+  }
+
+  .app > .header p {
+    font-size: 14px;
+  }
+
+  .app .main,
+  .app .tf-learning-workspace {
+    width: calc(100% - 20px);
+    padding: 16px 0 30px;
+  }
+
+  .app .topic-section {
+    padding: 22px 12px 26px;
+    border-radius: 16px;
+  }
+
+  .app .topic-section h2 {
+    font-size: 23px;
+  }
+
+  .app .topic-section > p {
+    font-size: 13px;
+  }
+
+  .app .topic-section .topics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .app .topic-section .topics button {
+    min-height: 140px;
+    padding: 16px 8px;
+    gap: 12px;
+    font-size: 13px;
+    border-radius: 13px;
+  }
+
+  .app .topic-section .topics .topic-icon {
+    font-size: 34px;
+  }
+
+  /* Giu thanh tab cuon ngang tren mobile */
+
+  .app .tf-learning-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 9px;
+    padding: 10px;
+  }
+
+  .app .tf-learning-nav button {
+    flex: 0 0 170px;
+    width: 170px;
+    min-height: 48px;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .app .tf-learning-content {
+    padding: 14px;
+    border-radius: 15px;
+  }
+
+  .app .tf-test-question {
+    padding: 14px;
+  }
+
+  .app .tf-test-option {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .app .tf-test-results {
+    padding: 18px;
+  }
+
+  .app .tf-progress-stat {
+    min-height: 120px;
+  }
+
+  .app .tf-progress-panel {
+    padding: 14px;
+  }
+
+  .app .tf-live-caption {
+    padding: 14px;
+    font-size: 17px;
+  }
+}
+
+/* 12. Dien thoai rat nho */
+
+@media (max-width: 380px) {
+  .app .topic-section .topics {
+    gap: 8px;
+  }
+
+  .app .topic-section .topics button {
+    min-height: 125px;
+    padding: 12px 6px;
+    font-size: 12px;
+  }
+
+  .app .tf-learning-content {
+    padding: 10px;
+  }
+}
+
+/* ===== END STEP 16.1 ===== */
+
+/* =========================================
+   TOPICFLIX - NEW IMAGE BANNER
+   Chi bo sung, khong xoa CSS cu
+========================================= */
+
+/* Banner tren laptop va may tinh */
+.app > .header {
+  width: 100%;
+  height: clamp(150px, 10.5vw, 230px);
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url('/images/topicflix-banner.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #312e81;
+
+  border-radius: 0 0 22px 22px;
+  overflow: hidden;
+}
+
+/* Tat hoa tiet CSS cu de khong che anh */
+.app > .header::before,
+.app > .header::after {
+  display: none;
+}
+
+/*
+  Anh banner da co logo va ten TopicFlix.
+  An phan chu cu de tranh hien thi 2 lan.
+  Van giu nguyen HTML va JSX.
+*/
+.app > .header .tf-brand,
+.app > .header > h1,
+.app > .header > p {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Tren dien thoai: hien logo goc de de doc */
+@media (max-width: 800px) {
+  .app > .header {
+    height: auto;
+    min-height: 155px;
+    padding: 24px 14px;
+
+    background-image: linear-gradient(
+      115deg,
+      #1d4ed8,
+      #4f46e5,
+      #7c3aed
+    );
+
+    border-radius: 0 0 18px 18px;
+  }
+
+  .app > .header .tf-brand,
+  .app > .header > h1,
+  .app > .header > p {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* ===== END NEW IMAGE BANNER ===== */
+
+/* =============================================
+   TOPICFLIX - STEP 16.3
+   PREMIUM LEARNING TOPIC CARDS
+   Chi bo sung, khong xoa CSS cu
+============================================= */
+
+/* 1. Khung chua 8 chu de */
+
+.app .topic-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid #e0e7ff;
+  border-radius: 28px;
+
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(165, 180, 252, 0.15),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(216, 180, 254, 0.16),
+      transparent 38%
+    ),
+    #ffffff;
+
+  box-shadow:
+    0 16px 45px rgba(67, 56, 202, 0.08),
+    0 3px 12px rgba(15, 23, 42, 0.03);
+}
+
+/* Tieu de */
+
+.app .topic-section h2 {
+  color: #312e81;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  text-align: center;
+}
+
+/* Duong trang tri duoi tieu de */
+
+.app .topic-section h2::after {
+  content: "";
+  display: block;
+  width: 95px;
+  height: 5px;
+  margin: 15px auto 18px;
+  border-radius: 20px;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #7c3aed,
+    #ec4899
+  );
+}
+
+.app .topic-section > p {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* 2. Luoi 8 chu de */
+
+.app .topic-section .topics {
+  gap: 22px;
+  margin-top: 35px;
+}
+
+/* 3. Giao dien chung cua tung the */
+
+.app .topic-section .topics button {
+  --tf-card-color: #6366f1;
+  --tf-card-soft: #eef2ff;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 205px;
+  padding: 25px 18px;
+  gap: 16px;
+
+  border: 1.5px solid #e0e7ff;
+  border-radius: 20px;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff 20%,
+    var(--tf-card-soft) 100%
+  );
+
+  color: #1e293b;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+
+  box-shadow:
+    0 5px 16px rgba(30, 41, 59, 0.05);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* 4. Hinh tron trang tri goc tren */
+
+.app .topic-section .topics button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  top: -52px;
+  right: -48px;
+  width: 150px;
+  height: 150px;
+
+  border-radius: 50%;
+  background: var(--tf-card-color);
+  opacity: 0.09;
+  pointer-events: none;
+}
+
+/* So thu tu trang tri 01 - 08 */
+
+.app .topic-section .topics button::after {
+  position: absolute;
+  top: 15px;
+  right: 18px;
+
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--tf-card-color);
+  opacity: 0.45;
+
+  pointer-events: none;
+}
+
+.app .topic-section .topics button:nth-child(1)::after {
+  content: "01";
+}
+
+.app .topic-section .topics button:nth-child(2)::after {
+  content: "02";
+}
+
+.app .topic-section .topics button:nth-child(3)::after {
+  content: "03";
+}
+
+.app .topic-section .topics button:nth-child(4)::after {
+  content: "04";
+}
+
+.app .topic-section .topics button:nth-child(5)::after {
+  content: "05";
+}
+
+.app .topic-section .topics button:nth-child(6)::after {
+  content: "06";
+}
+
+.app .topic-section .topics button:nth-child(7)::after {
+  content: "07";
+}
+
+.app .topic-section .topics button:nth-child(8)::after {
+  content: "08";
+}
+
+/* 5. Mau rieng cho tung chu de */
+
+/* Daily Conversations */
+.app .topic-section .topics button:nth-child(1) {
+  --tf-card-color: #7c3aed;
+  --tf-card-soft: #f2eaff;
+}
+
+/* Travel & Tourism */
+.app .topic-section .topics button:nth-child(2) {
+  --tf-card-color: #0284c7;
+  --tf-card-soft: #e0f4ff;
+}
+
+/* Business & Career */
+.app .topic-section .topics button:nth-child(3) {
+  --tf-card-color: #d97706;
+  --tf-card-soft: #fff3da;
+}
+
+/* Education */
+.app .topic-section .topics button:nth-child(4) {
+  --tf-card-color: #059669;
+  --tf-card-soft: #dffaf0;
+}
+
+/* Technology */
+.app .topic-section .topics button:nth-child(5) {
+  --tf-card-color: #2563eb;
+  --tf-card-soft: #e5edff;
+}
+
+/* Food & Lifestyle */
+.app .topic-section .topics button:nth-child(6) {
+  --tf-card-color: #ea580c;
+  --tf-card-soft: #fff0e2;
+}
+
+/* Movies & Entertainment */
+.app .topic-section .topics button:nth-child(7) {
+  --tf-card-color: #c026d3;
+  --tf-card-soft: #fae8ff;
+}
+
+/* Environment */
+.app .topic-section .topics button:nth-child(8) {
+  --tf-card-color: #16a34a;
+  --tf-card-soft: #e3fbe8;
+}
+
+/* 6. Nen bieu tuong noi bat */
+
+.app .topic-section .topics button .topic-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  width: 86px;
+  height: 86px;
+  padding: 8px;
+
+  font-size: 46px;
+  line-height: 1;
+
+  border-radius: 23px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.98),
+    var(--tf-card-soft)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  box-shadow:
+    0 8px 17px rgba(30, 41, 59, 0.09);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Ten chu de */
+
+.app .topic-section .topics button > span:last-child {
+  position: relative;
+  z-index: 1;
+
+  font-size: inherit;
+  color: inherit;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+/* 7. Hieu ung khi re chuot */
+
+@media (hover: hover) {
+  .app .topic-section .topics button:hover {
+    transform: translateY(-6px);
+    border-color: var(--tf-card-color);
+
+    box-shadow:
+      0 15px 28px rgba(30, 41, 59, 0.1);
+  }
+
+  .app .topic-section .topics button:hover .topic-icon {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow:
+      0 12px 22px rgba(30, 41, 59, 0.12);
+  }
+}
+
+/* 8. The chu de duoc chon */
+
+.app .topic-section .topics button.selected {
+  background: linear-gradient(
+    135deg,
+    #4f46e5 0%,
+    #7c3aed 100%
+  );
+
+  border-color: #a78bfa;
+  color: #ffffff;
+
+  box-shadow:
+    0 12px 24px rgba(79, 70, 229, 0.2);
+}
+
+.app .topic-section .topics button.selected::before {
+  background: #ffffff;
+  opacity: 0.13;
+}
+
+.app .topic-section .topics button.selected::after {
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.app .topic-section .topics button.selected .topic-icon {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #ffffff;
+}
+
+/* 9. Tablet */
+
+@media (max-width: 900px) {
+  .app .topic-section .topics {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .app .topic-section .topics button {
+    min-height: 175px;
+    padding: 20px 12px;
+  }
+
+  .app .topic-section .topics button .topic-icon {
+    width: 74px;
+    height: 74px;
+    font-size: 40px;
+    border-radius: 20px;
+  }
+}
+
+/* 10. Dien thoai */
+
+@media (max-width: 600px) {
+  .app .topic-section {
+    border-radius: 18px;
+    padding: 22px 12px 28px;
+  }
+
+  .app .topic-section h2 {
+    font-size: 23px;
+  }
+
+  .app .topic-section h2::after {
+    width: 65px;
+    height: 4px;
+    margin: 12px auto 14px;
+  }
+
+  .app .topic-section > p {
+    font-size: 13px;
+  }
+
+  .app .topic-section .topics {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+    gap: 11px;
+    margin-top: 24px;
+  }
+
+  .app .topic-section .topics button {
+    min-height: 158px;
+    padding: 16px 8px;
+    gap: 12px;
+    border-radius: 15px;
+    font-size: 13px;
+  }
+
+  .app .topic-section .topics button .topic-icon {
+    width: 65px;
+    height: 65px;
+    padding: 6px;
+    font-size: 35px;
+    border-radius: 17px;
+  }
+
+  .app .topic-section .topics button::after {
+    font-size: 12px;
+    top: 10px;
+    right: 11px;
+  }
+
+  .app .topic-section .topics button::before {
+    width: 105px;
+    height: 105px;
+    top: -45px;
+    right: -40px;
+  }
+}
+
+/* 11. Man hinh rat nho */
+
+@media (max-width: 380px) {
+  .app .topic-section .topics {
+    gap: 8px;
+  }
+
+  .app .topic-section .topics button {
+    min-height: 145px;
+    padding: 12px 6px;
+    font-size: 12px;
+  }
+
+  .app .topic-section .topics button .topic-icon {
+    width: 57px;
+    height: 57px;
+    font-size: 31px;
+  }
+}
+
+/* 12. Giam chuyen dong khi can */
+
+@media (prefers-reduced-motion: reduce) {
+  .app .topic-section .topics button,
+  .app .topic-section .topics button .topic-icon {
+    transition: none;
+  }
+
+  .app .topic-section .topics button:hover,
+  .app .topic-section .topics button:hover .topic-icon {
+    transform: none;
+  }
+}
+
+/* ===== END TOPICFLIX STEP 16.3 ===== */
+
