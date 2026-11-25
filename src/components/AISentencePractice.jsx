@@ -1,13 +1,22 @@
 
 import { useState } from 'react'
 
+// Localhost uses the existing backend.
+// Vercel uses the new serverless API.
+const AI_ENDPOINT = import.meta.env.DEV
+  ? 'http://localhost:3001/api/check-sentence'
+  : '/api/check-sentence'
+
 function AISentencePractice({ topic, level }) {
   const [sentence, setSentence] = useState('')
   const [feedback, setFeedback] = useState(null)
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
-  // Gửi câu tiếng Anh đến backend Gemini
+  // Trình độ chưa xác định cho đến khi đánh giá
+  const displayLevel = level || 'Not assessed'
+
+  // Gửi câu tiếng Anh đến Gemini AI
   const handleCheckSentence = async () => {
     const text = sentence.trim()
 
@@ -30,22 +39,27 @@ function AISentencePractice({ topic, level }) {
     setFeedback(null)
 
     try {
-      const response = await fetch(
-        'http://localhost:3001/api/check-sentence',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            sentence: text,
-            topic,
-            level,
-          }),
-        }
-      )
+      const response = await fetch(AI_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          sentence: text,
+          topic,
+          level,
+        }),
+      })
 
-      const data = await response.json()
+      let data
+
+      try {
+        data = await response.json()
+      } catch {
+        throw new Error(
+          'AI server returned an invalid response.'
+        )
+      }
 
       if (!response.ok || !data.success) {
         throw new Error(
@@ -59,11 +73,17 @@ function AISentencePractice({ topic, level }) {
 
       setFeedback(data.feedback)
     } catch (err) {
-      setError(
-        err instanceof TypeError
-          ? 'Cannot connect to the AI backend. Check port 3001.'
-          : err.message || 'Something went wrong.'
-      )
+      if (err instanceof TypeError) {
+        setError(
+          import.meta.env.DEV
+            ? 'Cannot connect to the local AI backend. Check port 3001.'
+            : 'Cannot connect to the online AI service. Please retry.'
+        )
+      } else {
+        setError(
+          err.message || 'Something went wrong.'
+        )
+      }
     } finally {
       setIsLoading(false)
     }
@@ -81,7 +101,7 @@ function AISentencePractice({ topic, level }) {
       <p>
         <strong>Topic:</strong> {topic}
         {' | '}
-        <strong>Level:</strong> {level}
+        <strong>Level:</strong> {displayLevel}
       </p>
 
       <label htmlFor="tf-ai-sentence">
@@ -115,7 +135,10 @@ function AISentencePractice({ topic, level }) {
       </button>
 
       {error && (
-        <div className="tf-ai-feedback" role="alert">
+        <div
+          className="tf-ai-feedback"
+          role="alert"
+        >
           <p>{error}</p>
         </div>
       )}
